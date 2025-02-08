@@ -19,7 +19,7 @@ const upperCaseMenuItems = menuItems.map((item) => {
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
     standalone: true,
-    imports: [NgIf, RouterLink, NgFor,] ,
+    imports: [NgIf, RouterLink, NgFor,],
 })
 export class HeaderComponent {
 
