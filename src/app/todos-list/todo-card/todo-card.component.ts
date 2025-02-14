@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
     templateUrl: './todo-card.component.html',
     styleUrl: './todo-card.component.scss',
     standalone: true,
-    imports: [NgFor]
+    imports: []
 })
 export class TodoCardComponent {
     @Input()
