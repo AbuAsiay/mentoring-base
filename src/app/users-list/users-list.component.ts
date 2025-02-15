@@ -17,24 +17,26 @@ import { map } from 'rxjs';
 })
 
 export class UsersListComponent {
-  readonly usersService = inject(UsersService)
   readonly usersApiService = inject(UsersApiService)
-    users = this.usersService.users$
+  readonly usersService = inject(UsersService)
+  
  
 
     constructor() {
         this.usersApiService.getUsers().subscribe(
             (response: any) => {
-                this.users = (response);
+                this.usersService.setUsers(response);
             }
        )
     }
 
 
     deleteUser(id: number) {
-        this.users = this.users.pipe(
-            map(users => users.filter(user => user.id !== id))
-        );
+        this.usersService.deleteUser(id);
+        // this.users = this.users.pipe(map(
+        //     users => users.filter(
+        //         user => user.id !== id))
+        // );
     }
 }
     // deleteUser(id: number) {

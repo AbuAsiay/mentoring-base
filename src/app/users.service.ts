@@ -4,15 +4,14 @@ import { BehaviorSubject } from "rxjs";
 
 @Injectable({providedIn: 'root'})
 export class UsersService {
-    private usersSubject$ = new BehaviorSubject<User[]>([]);
+    public usersSubject$ = new BehaviorSubject<User[]>([]);
     users$ = this.usersSubject$.asObservable();
-    users: User[] = [];
+    
 
     setUsers(users: User[]) {
-        this.usersSubject$.next(users);
-        console.log(users)
+        this.usersSubject$.next(users); 
     }
-
+   
     editUsers(editedUser: User) {
         this.usersSubject$.next(
             this.usersSubject$.value.map(

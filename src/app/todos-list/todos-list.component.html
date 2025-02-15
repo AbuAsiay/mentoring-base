@@ -1,7 +1,7 @@
 <div style="padding: 0px 240px">КОМПАНЕНТ СПИСКА ЮЗЕРОВ</div>
 
 <div style="display: flex; flex-wrap: wrap; padding: 0px 240px; ">
-  <div *ngFor="let todo of todos">
+  <div *ngFor=" let todo of todosService.todosSubject$ | async">
     <app-todo-card [todo]="todo"(deleteTodo)="deleteTodo($event)"></app-todo-card>
   </div>
 </div>
