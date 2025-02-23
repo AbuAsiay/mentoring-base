@@ -1,0 +1,35 @@
+
+<div style="padding: 0px 240px; margin: 30px 30px 30px 0px;">
+    <h1>CREATE TODO FORM</h1>
+<form style="display: flex; flex-direction: column; padding-left: 10px;" 
+    [formGroup]="form" 
+    (ngSubmit)="submitForm()">
+    
+    <p>ТЕКСТ ЗАДАЧИ</p>
+    <input type="text" class="form-input" formControlName = "title">
+    <div *ngIf = "form.controls['title'].invalid && (form.controls['title'].dirty || form.controls['title'].touched)">
+      <div *ngIf = "form.controls['title'].errors" style="color: red;">
+          Текст задачи введен не правильно
+      </div>
+  </div>
+    <p>АВТОР ЗАДАЧИ</p>
+    <input type="text" class="form-input" formControlName = "userId">
+    <div *NgIf = "form.controls['userId'].invalid && (form.controls['userId'].dirty || form.controls['userId'].touched)">
+      <div *NgIf = "form.controls['userId'].errors" style="color: red;">
+          Автор введен не правильно
+      </div>
+  </div>
+    <p>ЗАДАЧА ЗАВЕРШИНА</p>
+    <input type="text" class="form-input" formControlName = "completed">
+     <div *NgIf = "form.controls['completed'].invalid && (form.controls['completed'].dirty || form.controls['completed'].touched)">
+            <div *NgIf = "form.controls['completed'].errors" style="color: red;">
+                Ответ не корректный
+            </div>
+        </div>
+    <button 
+      style="width: 176px; margin-top: 20px;" [disabled] = "!form.valid"
+      type="submit">
+      CREAT TODO
+    </button>     
+</form>
+</div>

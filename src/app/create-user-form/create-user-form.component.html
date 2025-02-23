@@ -1,0 +1,21 @@
+<div style="padding: 0 240px; margin: 30px 30px 30px 11px;">
+    <h1>CREATE USER FORM</h1> 
+    <form style="display: flex; flex-direction: column"
+        [formGroup]="form"
+        (ngSubmit)="sumbitForm()">
+        <p>NAME:</p>
+        <input type="text" class="form-input" formControlName="name">
+        <div *ngIf = "formTodo.controls['title'].invalid && (formTodo.controls['title'].dirty || formTodo.controls['title'].touched)">
+            <div *ngIf = "formTodo.controls['title'].errors" style="color: red;">
+                Текст задачи введен не правильно
+            </div>
+        </div>
+        <p>EMAIL:</p>
+        <input type="text" class="form-input" formControlName="email">
+        <p>WEBSITE:</p>
+        <input type="text" class="form-input" formControlName="website">
+        <p>COMPANY NAME:</p>
+        <input type="text" class="form-input" formControlName="companyName">
+        <button style="width: 156px; margin-top: 20px;"[disabled]="!form.valid">CREATE USER</button>
+    </form>
+</div>
