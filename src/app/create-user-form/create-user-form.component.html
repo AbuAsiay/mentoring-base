@@ -3,19 +3,32 @@
     <form style="display: flex; flex-direction: column"
         [formGroup]="form"
         (ngSubmit)="sumbitForm()">
-        <p>NAME:</p>
-        <input type="text" class="form-input" formControlName="name">
-        <div *ngIf = "formTodo.controls['title'].invalid && (formTodo.controls['title'].dirty || formTodo.controls['title'].touched)">
-            <div *ngIf = "formTodo.controls['title'].errors" style="color: red;">
-                Текст задачи введен не правильно
-            </div>
-        </div>
-        <p>EMAIL:</p>
-        <input type="text" class="form-input" formControlName="email">
-        <p>WEBSITE:</p>
-        <input type="text" class="form-input" formControlName="website">
-        <p>COMPANY NAME:</p>
-        <input type="text" class="form-input" formControlName="companyName">
-        <button style="width: 156px; margin-top: 20px;"[disabled]="!form.valid">CREATE USER</button>
+        <mat-form-field class="form">
+            <mat-label>Введите имя пользователя</mat-label>
+            <input  matInput formControlName="name">
+            <mat-error>Некорректное значение</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="form">
+            <mat-label>Введите Email</mat-label>
+            <input matInput formControlName="email">
+            <mat-error>Некорректное значение</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="form">
+            <mat-label>Введите Wibsite</mat-label>
+            <input matInput formControlName="website">
+            <mat-error>Некорректное значение</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="form">
+            <mat-label>Введите company </mat-label>
+            <input matInput formControlName="companyName">
+            <mat-error>Некорректное значение</mat-error>
+        </mat-form-field>
+        
+        <button class="form" matIconSuffix mat-raised-button [disabled]="form.invalid">Add User
+            <mat-icon>add</mat-icon>
+        </button>
     </form>
 </div>
