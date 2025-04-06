@@ -19,10 +19,10 @@
     
     <mat-form-field class="form-input">
         <mat-label>Задача завершина</mat-label>
-        <input matInput formControlName="completed:">
+        <input matInput formControlName="completed">
         <mat-error>Ответ не корректный</mat-error>
     </mat-form-field>
-    <button class="form-input" matIconSuffix mat-raised-button [disabled]="!form.invalid">Add User
+    <button class="form-input" matIconSuffix mat-raised-button [disabled]="form.invalid">Add User
         <mat-icon>add</mat-icon>
     </button>
 </form>

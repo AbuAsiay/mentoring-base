@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe, formatDate, NgFor } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UsersApiService } from '../users-api.service';
 import { UserCardComponent } from "./user-card/user-card.component";
@@ -22,13 +22,13 @@ export class UsersListComponent {
         this.usersApiService.getUsers().subscribe(
             (response: any) => {
                 this.usersService.setUsers(response);
-            }
-       )
+            },
+       );
        
        this.usersService.users$.subscribe (
         users => console.log(users)
-       )
-    }
+       );
+    };
     
     public createUser(formData: any) {
         this.usersService.createUser({
@@ -38,14 +38,25 @@ export class UsersListComponent {
             website:formData.website,
             company: {
                 name: formData.companyName,
-                catchPrase: '',
-                bs: ''
-            }
-        })
-        console.log('ДАННЫЕ ФОРМЫ: ',  event);
+            },
+        });
+        console.log('ДАННЫЕ ФОРМЫ: ',);
     }
 
     deleteUser(id: number) {
         this.usersService.deleteUser(id);
     }
-}   
+    
+    editUser(userData: any) {
+        if (!userData) {
+            return;
+        }
+        
+        this.usersService.editUsers({
+            ...userData,
+            company: {
+                name: userData.companyName
+            }
+        });
+    }
+}

@@ -1,0 +1,30 @@
+<form style="display: flex; flex-direction: column; padding: 50px;"
+[formGroup]="form">
+<mat-form-field class="form">
+    <mat-label>Введите имя пользователя</mat-label>
+    <input  matInput formControlName="name">
+    <mat-error>Некорректное значение</mat-error>
+</mat-form-field>
+
+<mat-form-field class="form">
+    <mat-label>Введите Email</mat-label>
+    <input matInput formControlName="email">
+    <mat-error>Некорректное значение</mat-error>
+</mat-form-field>
+
+<mat-form-field class="form">
+    <mat-label>Введите Wibsite</mat-label>
+    <input matInput formControlName="website">
+    <mat-error>Некорректное значение</mat-error>
+</mat-form-field>
+
+<mat-form-field class="form">
+    <mat-label>Введите company </mat-label>
+    <input matInput formControlName="companyName">
+    <mat-error>Некорректное значение</mat-error>
+</mat-form-field>
+
+<button class="form" matIconSuffix mat-raised-button [disabled]="form.invalid" [mat-dialog-close]="userWithUpdatedFields">Редактировать
+    <mat-icon></mat-icon>
+</button>
+</form>

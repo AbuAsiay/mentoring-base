@@ -1,6 +1,7 @@
-import { NgFor, NgIf } from "@angular/common";
+import { CommonModule, NgFor, NgIf } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
+import { RemovedashesPipe } from "../../pipes/remove-dashes.pipe";
 
 const func = (date: string) => { return date }
 
@@ -19,10 +20,27 @@ const upperCaseMenuItems = menuItems.map((item) => {
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
     standalone: true,
-    imports: [NgIf, RouterLink, NgFor,],
+    imports: [NgIf, RouterLink, NgFor, CommonModule, RemovedashesPipe],
 })
 export class HeaderComponent {
-
+    
+    user ={
+        phone:'+7 (965) 084-29-29',
+    };
+    
+    today: Date = new Date();
+    private timeId: any;
+    
+    ngOnInit() {
+        this.timeId = setInterval(() => {
+            this.today = new Date();
+        }, 1000);
+    }
+    ngOnDestroy(): void {
+        if (this.timeId)
+        clearInterval(this.timeId);
+    }
+    
     readonly headerItem1 = 'Главная';
     readonly headerItem2 = 'О компании';
     readonly headerItem3 = 'Каталог';

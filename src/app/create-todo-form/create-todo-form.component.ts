@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
     templateUrl: './create-todo-form.component.html',
     styleUrl: './create-todo-form.component.scss',
     standalone: true,
-    imports: [ReactiveFormsModule, NgIf,
+    imports: [ReactiveFormsModule,
         MatInputModule,
         MatFormFieldModule,
         MatButtonModule,
@@ -29,16 +29,10 @@ export class CreateTodoFormComponent {
         completed: new FormControl('', [Validators.required, Validators.minLength(2)]),
     });
 
-    // сonstructor() { //constructor нужен для передачи сервисов в компонент
-    // }
-
-
-
 
     public submitForm(): void {
         this.createTodo.emit(this.form.value);
         this.form.reset();
-        console.log('TODO IS CREATED',);
     }
 
     constructor() {
@@ -50,3 +44,4 @@ export class CreateTodoFormComponent {
     }
 
 }
+

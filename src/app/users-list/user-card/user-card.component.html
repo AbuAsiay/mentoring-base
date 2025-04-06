@@ -1,8 +1,10 @@
-<div style="width: 200px; height: 200px; box-shadow: 0px 20px 50px 0px rgba(18, 17, 39, 0.08);
+<div
+    style="width: 200px; height: 200px; box-shadow: 0px 20px 50px 0px rgba(18, 17, 39, 0.08);
     background: rgb(255, 255, 255); margin: 10px; padding: 10px;">
-    <p>{{user.name}}</p>
-    <p>{{user.email}}</p>
-    <p>{{user.website}}</p>
+    <p>{{user.name | customUpperCase }}</p>
+    <p>{{user.email |  customUpperCase }}</p>
+    <p>{{user.website |  customUpperCase }}</p>
     <p>{{user.company.name}}</p>
-    <button (click)=onDeleteUser(user.id) style="border:1px solid #f0ba4e;border-radius:54px;height:35;width:150px;">УДАЛИТЬ ЮЗЕРА</button>
+    <button class="snap"(click)=onDeleteUser(user.id)> УДАЛИТЬ ЮЗЕРА</button>
+    <button class="snap-1"(click)=openDialog()>РЕДАКТИРОВАТЬ ЮЗЕРА</button>
 </div>

@@ -2,7 +2,7 @@
     <h1>CREATE USER FORM</h1> 
     <form style="display: flex; flex-direction: column"
         [formGroup]="form"
-        (ngSubmit)="sumbitForm()">
+        (ngSubmit)="submitForm()">
         <mat-form-field class="form">
             <mat-label>Введите имя пользователя</mat-label>
             <input  matInput formControlName="name">

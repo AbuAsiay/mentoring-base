@@ -29,9 +29,9 @@ export class CreateUserFormComponent {
         website: new FormControl('', [Validators.required, Validators.minLength(2)]),
         companyName: new FormControl('', [Validators.required, Validators.minLength(2)]),
     });
-    formTodo: any;
+  
 
-    public sumbitForm(): void {
+    public submitForm(): void {
         this.createUser.emit(this.form.value);
         this.form.reset();
     }

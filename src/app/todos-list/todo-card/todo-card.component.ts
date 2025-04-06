@@ -1,12 +1,13 @@
 import { NgFor } from "@angular/common";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { TrucatePipe } from "../../pipes/truncate.pipe";
 
 @Component({
     selector: 'app-todo-card',
     templateUrl: './todo-card.component.html',
     styleUrl: './todo-card.component.scss',
     standalone: true,
-    imports: []
+    imports: [TrucatePipe]
 })
 export class TodoCardComponent {
     @Input()
