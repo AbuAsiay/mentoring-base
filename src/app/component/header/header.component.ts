@@ -2,6 +2,8 @@ import { CommonModule, NgFor, NgIf } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { RemovedashesPipe } from "../../pipes/remove-dashes.pipe";
+import { YellowDerective } from "../../directives/yellow.directive";
+
 
 const func = (date: string) => { return date }
 
@@ -20,7 +22,7 @@ const upperCaseMenuItems = menuItems.map((item) => {
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
     standalone: true,
-    imports: [NgIf, RouterLink, NgFor, CommonModule, RemovedashesPipe],
+    imports: [NgIf, RouterLink, NgFor, CommonModule, RemovedashesPipe, YellowDerective],
 })
 export class HeaderComponent {
     

@@ -1,33 +1,35 @@
 <div style="padding: 0 240px; margin: 30px 30px 30px 11px;">
-    <h1>CREATE USER FORM</h1> 
+    <h1>CREATE USER FORM</h1>
     <form style="display: flex; flex-direction: column"
         [formGroup]="form"
         (ngSubmit)="submitForm()">
         <mat-form-field class="form">
             <mat-label>Введите имя пользователя</mat-label>
-            <input  matInput formControlName="name">
+            <input matInput formControlName="name">
             <mat-error>Некорректное значение</mat-error>
         </mat-form-field>
-        
+
         <mat-form-field class="form">
             <mat-label>Введите Email</mat-label>
             <input matInput formControlName="email">
             <mat-error>Некорректное значение</mat-error>
         </mat-form-field>
-        
+
         <mat-form-field class="form">
             <mat-label>Введите Wibsite</mat-label>
             <input matInput formControlName="website">
             <mat-error>Некорректное значение</mat-error>
         </mat-form-field>
-        
+
         <mat-form-field class="form">
             <mat-label>Введите company </mat-label>
             <input matInput formControlName="companyName">
             <mat-error>Некорректное значение</mat-error>
         </mat-form-field>
-        
-        <button class="form" matIconSuffix mat-raised-button [disabled]="form.invalid">Add User
+
+        <button matTooltip="Создать Юзера" mat-raised-button
+            class="form" matIconSuffix mat-raised-button
+            [disabled]="form.invalid">Add User
             <mat-icon>add</mat-icon>
         </button>
     </form>

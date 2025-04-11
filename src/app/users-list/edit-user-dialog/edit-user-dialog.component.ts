@@ -6,6 +6,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { User } from "../../interfaces/users.interface";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 
 
@@ -17,7 +18,8 @@ import { User } from "../../interfaces/users.interface";
     MatFormFieldModule,
     MatButtonModule,
     MatIconModule,
-    MatDialogClose,]  
+    MatDialogClose,
+    MatTooltipModule]  
     })
 
 export class EditUserDialogComponent {
