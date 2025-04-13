@@ -51,6 +51,19 @@
     margin-right: 10px;
 }
 
+.button {
+    background-color: transparent;
+    color: white;
+    border-color: rgba(240, 186, 78, 1);
+    border-radius: 50px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px 20px;
+    width: 90px;
+    height: 48px;
+    margin: 5px;
+}
+
 .menu {
     display: flex;
     justify-content: space-between;

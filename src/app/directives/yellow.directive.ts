@@ -28,7 +28,7 @@ export class YellowDerective {
     @HostListener('mouseleave')
     leave() {
         this.color = '';
-        this.textTransform = 'lowercase';
+        this.textTransform = 'leave';
         console.log('white');
     }
 }
