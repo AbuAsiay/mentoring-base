@@ -1,4 +1,3 @@
-import { NgIf } from "@angular/common";
 import { Component, EventEmitter, Output } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { MatInputModule } from '@angular/material/input';
@@ -14,19 +13,20 @@ import { MatIconModule } from '@angular/material/icon';
     styleUrl: './create-todo-form.component.scss',
     standalone: true,
     imports: [ReactiveFormsModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        MatIconModule],
+      MatInputModule,
+      MatFormFieldModule,
+      MatButtonModule,
+      MatIconModule],
 })
 export class CreateTodoFormComponent {
+    
     @Output()
-    createTodo = new EventEmitter();
+    createTodo = new EventEmitter<FormGroup>();
 
-    public form = new FormGroup({
-        title: new FormControl('', [Validators.required, Validators.minLength(2)]),
-        userId: new FormControl('', [Validators.required, Validators.minLength(1)]),
-        completed: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    public form: FormGroup = new FormGroup({
+        title: new FormControl<string>('', [Validators.required, Validators.minLength(2)]),
+        userId: new FormControl<number>(0, [Validators.required, Validators.minLength(1)]),
+        completed: new FormControl<boolean>(false, [Validators.required, Validators.minLength(2)]),
     });
 
 
@@ -34,14 +34,6 @@ export class CreateTodoFormComponent {
         this.createTodo.emit(this.form.value);
         this.form.reset();
     }
-
-    constructor() {
-        this.form.valueChanges.subscribe(
-            (value) => {
-                console.log('value', value);
-            }
-        )
-    }
-
+    
 }
 

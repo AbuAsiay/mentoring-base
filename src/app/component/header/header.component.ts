@@ -29,10 +29,12 @@ const upperCaseMenuItems = menuItems.map((item) => {
 })
 export class HeaderComponent {
     
+      
+    
     private readonly dialog = inject(MatDialog);
     public readonly userService = inject(UserService);
     
-    user ={
+    user = {
         phone:'+7 (965) 084-29-29',
     };
     
@@ -49,10 +51,10 @@ export class HeaderComponent {
         clearInterval(this.timeId);
     }
     
-    readonly headerItem1 = 'Главная';
-    readonly headerItem2 = 'О компании';
-    readonly headerItem3 = 'Каталог';
-    readonly aboutCompany = vzv;
+    readonly headerItem1: string = 'Главная';
+    readonly headerItem2: string = 'О компании';
+    readonly headerItem3: string = 'Каталог';
+    readonly aboutCompany: string = vzv;
 
     isShowCatalog = !false;
 

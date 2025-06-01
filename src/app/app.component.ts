@@ -1,7 +1,5 @@
-import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { reduce } from 'rxjs';
+import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 
@@ -10,10 +8,9 @@ import { FooterComponent } from './component/footer/footer.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-}
+export class AppComponent { }
 
 // const time = new Date().getTime();
 
@@ -26,7 +23,7 @@ export class AppComponent {
 // }
 
 // const shopping = (name: string,  item1: string, item2: string, item3: string, price:[number, number, number]) => {
-//   return name + ' Пошел в магазин ' + 'Он купил там сначала ' +  item1 + ' Затем, он купил ' + item2 + ' В конце он еще купил  ' + item3 
+//   return name + ' Пошел в магазин ' + 'Он купил там сначала ' +  item1 + ' Затем, он купил ' + item2 + ' В конце он еще купил  ' + item3
 
 // }
 
@@ -44,7 +41,7 @@ export class AppComponent {
 //   return menuItem;
 // }
 
-// const menuItemName =  getMenuItem('О компании') 
+// const menuItemName =  getMenuItem('О компании')
 // console.log(menuItemName);
 
 // names.forEach(
@@ -52,13 +49,10 @@ export class AppComponent {
 //     console.log(name);
 //   }
 // );
- 
+
 // names.map(
 //   (name) => {
 //     console.log(name. toUpperCase());
 //     return name.toUpperCase();
 //   }
 // );
-
-
-

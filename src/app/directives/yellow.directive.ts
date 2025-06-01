@@ -6,7 +6,7 @@ import { Directive, HostBinding, HostListener } from "@angular/core";
 })
 export class YellowDerective {
     color = ';'
-    textTransform = 'lowercase';
+    textTransform = '';
     
     @HostBinding('style.backgroundColor')
     get backgroundColor() {
@@ -27,8 +27,8 @@ export class YellowDerective {
 
     @HostListener('mouseleave')
     leave() {
-        this.color = '';
-        this.textTransform = 'leave';
+        this.color = 'leave';
+        this.textTransform = 'lowercase';
         console.log('white');
     }
 }

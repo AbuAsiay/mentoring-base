@@ -8,35 +8,34 @@ export interface IUser {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  
   private readonly userSubject$ = new BehaviorSubject<IUser | null>(null);
-  public readonly user$ = this.userSubject$.asObservable()
+  public readonly user$ = this.userSubject$.asObservable();
 
   private user: IUser = {
     name: 'John Doe',
     email: 'Jonn',
     isAdmin: null,
-  }
-  
+  };
+
   loginAsAdmin() {
     this.userSubject$.next({ ...this.user, isAdmin: true });
-    console.log('Вошли как админ');
   }
-  
+
   loginAsUser() {
     this.userSubject$.next({ ...this.user, isAdmin: false });
-    console.log('Вошли как пользователь');
   }
-  
+
   get isAdmin() {
     return this.userSubject$.value?.isAdmin;
-    
-     }   
-     
-     logout() {
-      this.userSubject$.next(null);
-      console.log(this.userSubject$);
-     }
+  }
+
+  logout() {
+    this.userSubject$.next(null);
+    console.log(this.userSubject$);
+  }
+  
 }

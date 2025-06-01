@@ -14,3 +14,17 @@
     margin-left:30px;
     margin-top: 15px;
 }
+
+.user-card {
+    flex-direction: column;
+    justify-content: center;
+    width: 240px;
+    height: 290px;
+    margin: 10px;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 25px;
+}
+
+

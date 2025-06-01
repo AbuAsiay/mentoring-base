@@ -1,7 +1,15 @@
-body{
-    padding: 0px;
-    margin: 0px;
-    font-family: Inter;
+*,
+*::before,
+*::after {
+  padding: 0px;
+  margin: 0px;
+  font-family: Inter;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

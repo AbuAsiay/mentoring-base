@@ -1,6 +1,6 @@
-import { NgFor } from "@angular/common";
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { TrucatePipe } from "../../pipes/truncate.pipe";
+import { Todo } from "../../interfaces/todos.interface";
 
 @Component({
     selector: 'app-todo-card',
@@ -11,10 +11,10 @@ import { TrucatePipe } from "../../pipes/truncate.pipe";
 })
 export class TodoCardComponent {
     @Input()
-    todo: any
+    todo!: Todo;
 
     @Output()
-    deleteTodo = new EventEmitter();
+    deleteTodo = new EventEmitter<Number>();
 
     onDeleteTodo(todoId: number) {
         this.deleteTodo.emit(todoId);

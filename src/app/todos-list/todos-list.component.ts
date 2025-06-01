@@ -9,7 +9,7 @@ import { CreateTodoFormComponent } from "../create-todo-form/create-todo-form.co
     selector: 'app-todos-list',
     templateUrl: './todos-list.component.html',
     styleUrl: './todos-list.component.scss',
-    standalone: true, 
+    standalone: true,
     imports: [NgFor, TodoCardComponent, AsyncPipe, CreateTodoFormComponent],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -24,7 +24,7 @@ export class TodosListComponent {
                 this.todosService.setTodos(response);
             }
         )
-        
+
         this.todosService.todos$.subscribe(
             (todos: any) => {
                 console.log('todos', todos);
@@ -35,7 +35,7 @@ export class TodosListComponent {
     deleteTodo(id: any) {
         this.todosService.deleteTodo(id)
     }
-    
+
     public createTodo(formData: any) {  // подправить тип any на Todo НО это показывет на видио д\з 30 сентября.
         this.todosService.createTodo({
             id: new Date().getTime(),
@@ -43,7 +43,7 @@ export class TodosListComponent {
             userId: formData.userId,
             completed: formData.completed,
         })
-        
-        console.log('ДАННЫЕ ФОРМЫ:' ,event);
+
+        console.log('ДАННЫЕ ФОРМЫ:', event);
     }
 }

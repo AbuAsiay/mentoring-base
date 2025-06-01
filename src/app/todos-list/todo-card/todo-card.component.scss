@@ -1,0 +1,19 @@
+.todo-card {
+    width: 240px;
+    height: 250px;
+    box-shadow: 0px 20px 50px 0px rgba(18, 17, 39, 0.08);
+    background: rgb(255, 255, 255);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.todo-card-delete {
+    border:1px solid #f0ba4e;
+    border-radius:54px;
+    height:35;
+    width:150px;
+    margin-top: 30px;
+}
+

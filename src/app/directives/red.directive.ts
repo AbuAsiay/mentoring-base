@@ -28,7 +28,7 @@ export class RedDirective {
     @HostListener('mouseleave')
     leave() {
         this.color = 'white';
-        this.textTransform = 'leave';
+        this.textTransform = 'lowercase';
       console.log('white');
     }   
     
