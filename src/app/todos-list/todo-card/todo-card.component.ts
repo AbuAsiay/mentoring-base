@@ -10,11 +10,12 @@ import { Todo } from "../../interfaces/todos.interface";
     imports: [TrucatePipe]
 })
 export class TodoCardComponent {
+    
     @Input()
     todo!: Todo;
 
     @Output()
-    deleteTodo = new EventEmitter<Number>();
+    deleteTodo = new EventEmitter<number>();
 
     onDeleteTodo(todoId: number) {
         this.deleteTodo.emit(todoId);

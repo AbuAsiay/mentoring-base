@@ -15,12 +15,13 @@ import { MatTooltipModule } from "@angular/material/tooltip";
     templateUrl: './edit-user-dialog.component.html',
     standalone: true,
     imports: [ReactiveFormsModule, 
-      MatInputModule,
-      MatFormFieldModule,
-      MatButtonModule,
-      MatIconModule,
-      MatDialogClose,
-      MatTooltipModule]  
+              MatInputModule,
+              MatFormFieldModule,
+              MatButtonModule,
+              MatIconModule,
+              MatDialogClose,
+              MatTooltipModule,
+            ]   
     })
 
 export class EditUserDialogComponent {
@@ -33,15 +34,17 @@ export class EditUserDialogComponent {
         name: new FormControl(this.data.user.name, [Validators.required, Validators.minLength(2)]),
         email: new FormControl(this.data.user.email, [Validators.required, Validators.email]),
         website: new FormControl(this.data.user.website, [Validators.required, Validators.minLength(2)]),
-        companyName: new FormControl(this.data.user.company.name, [Validators.required, Validators.minLength(2)]),
+        company: new FormGroup({
+           name: new FormControl(this.data.user.company.name, [Validators.required, Validators.minLength(2)]),
+
+        })
         });
         
-      
         get userWithUpdatedFields(): {} {
             return {
                 ...this.form.value,
                 id: this.data.user.id,
             };
         }
-        
+    
     }

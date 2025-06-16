@@ -21,3 +21,18 @@ export interface User {
     bs?: string;
   };
 }
+
+
+
+export interface CreateUserForm {
+  id: number;
+  name: string;
+  email: string;
+  website: string;
+  
+  companyName: {
+    name: string;
+    catchPrase?: string;
+    bs?: string;
+  };
+}

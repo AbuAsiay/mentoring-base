@@ -21,7 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class CreateTodoFormComponent {
     
     @Output()
-    createTodo = new EventEmitter<FormGroup>();
+    createTodo = new EventEmitter();
 
     public form: FormGroup = new FormGroup({
         title: new FormControl<string>('', [Validators.required, Validators.minLength(2)]),

@@ -20,13 +20,13 @@
             <input matInput formControlName="website">
             <mat-error>Некорректное значение</mat-error>
         </mat-form-field>
-
-        <mat-form-field>
-            <mat-label>Введите company </mat-label>
-            <input matInput formControlName="companyName">
-            <mat-error>Некорректное значение</mat-error>
-        </mat-form-field>
-
+        <div formGroupName="company">
+            <mat-form-field>
+                <mat-label>Введите company</mat-label>
+                <input matInput formControlName="name">
+                <mat-error>Некорректное значение</mat-error>
+            </mat-form-field>
+        </div>
         <button matTooltip="Создать Юзера" mat-raised-button
             matIconSuffix mat-raised-button
             [disabled]="form.invalid">Add User

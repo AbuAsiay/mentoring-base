@@ -1,4 +1,4 @@
-import { AsyncPipe, NgFor } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy,Component,inject,OnInit} from '@angular/core';
 import { UsersApiService } from '../users-api.service';
 import { UserCardComponent } from './user-card/user-card.component';
@@ -12,8 +12,9 @@ import { Observable } from 'rxjs';
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss',
   standalone: true,
-  imports: [NgFor, UserCardComponent, AsyncPipe, CreateUserFormComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [NgFor, UserCardComponent, 
+            AsyncPipe, CreateUserFormComponent,],
+            changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent implements OnInit {
   
@@ -33,7 +34,6 @@ export class UsersListComponent implements OnInit {
       name: formData.name,
       email: formData.email,
       website: formData.website,
-      
       company: {
         name: formData.company.name,
       },

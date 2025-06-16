@@ -41,8 +41,7 @@ export class UserCardComponent {
       data: { user: this.user },
     });
 
-    dialogRef.afterClosed().subscribe((editResult) => {
-      console.log('модалка закрыта, значение формы', editResult);
+    dialogRef.afterClosed().subscribe((editResult: User | undefined) => {
       if (!editResult) return;
       this.editUser.emit(editResult);
     });

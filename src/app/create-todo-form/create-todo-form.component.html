@@ -1,29 +1,30 @@
 
 <div class="create-group">
     <h1>CREATE TODO FORM</h1>
-<form class="create-form-group"
-    [formGroup]="form" 
-    (ngSubmit)="submitForm()">
-    
-    <mat-form-field class="form-input">
-        <mat-label>Введите имя задачи</mat-label>
-        <input matInput formControlName="title">
-        <mat-error> Некорректное имя задачи </mat-error>
-    </mat-form-field>
+    <form class="create-form-group"
+        [formGroup]="form"
+        (ngSubmit)="submitForm()">
 
-    <mat-form-field class="form-input">
-        <mat-label>Автор задачи</mat-label>
-        <input matInput formControlName="userId">
-        <mat-error> Автор задачи не корректен</mat-error>
-    </mat-form-field>
-    
-    <mat-form-field class="form-input">
-        <mat-label>Задача завершина</mat-label>
-        <input matInput formControlName="completed">
-        <mat-error>Ответ не корректный</mat-error>
-    </mat-form-field>
-    <button class="form-input" matIconSuffix mat-raised-button [disabled]="form.invalid">Add User
-        <mat-icon>add</mat-icon>
-    </button>
-</form>
+        <mat-form-field class="form-input">
+            <mat-label>Введите имя задачи</mat-label>
+            <input matInput formControlName="title">
+            <mat-error> Некорректное имя задачи </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-input">
+            <mat-label>Автор задачи</mat-label>
+            <input matInput formControlName="userId">
+            <mat-error> Автор задачи не корректен</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-input">
+            <mat-label>Задача завершина</mat-label>
+            <input matInput formControlName="completed">
+            <mat-error>Ответ не корректный</mat-error>
+        </mat-form-field>
+        <button class="form-input" matIconSuffix mat-raised-button
+            [disabled]="form.invalid">Add User
+            <mat-icon>add</mat-icon>
+        </button>
+    </form>
 </div>

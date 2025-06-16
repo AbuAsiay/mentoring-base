@@ -4,10 +4,8 @@
       <img src="/assets/Frame.svg" alt="логотип сайта">
     </a>
 
-    <!-- Сегодня: 4 апр. 2025 г., 17:12:43 -->
     {{ today | date: 'medium' }}
-    <!-- Сегодня: {{ today | date: 'medium' }} -->
-
+ 
     <nav class="header-nav">
       <button class="header-nav-item" routerLink>{{headerItem1}}</button>
       <button class="header-nav-item">{{headerItem2}}</button>
@@ -15,9 +13,11 @@
         *ngIf="isShowCatalog">{{headerItem3}}</button>
     </nav>
     <button (click)="isShowCatalog = !isShowCatalog"
-      class="header-nav-item">Скрыть/Показать каталог </button>
-    <button (click)="changeMenuText()" class="header-nav-item">Изменить
-      текст</button>
+      class="header-nav-item">Скрыть/Показать каталог
+    </button>
+    <button (click)="changeMenuText()" class="header-nav-item">
+      Изменить текст
+    </button>
   </div>
 
   <div class="header-right">
@@ -31,8 +31,6 @@
     <div class="header-right-item-heart">
       <img src="/assets/heart_2.svg" alt="heart" />
     </div>
-
-    <!-- tut ctavit -->
 
     <button type="button" class="header-right-item header-right basket" yellow>
       <img class="icon" src="/assets/Mask group.png" alt />
