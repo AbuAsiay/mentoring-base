@@ -1,8 +1,7 @@
 <div class="form-group">
     <h1>CREATE USER FORM</h1>
     <form style="display: flex; flex-direction: column"
-        [formGroup]="form"
-        (ngSubmit)="submitForm()">
+        [formGroup]="form">
         <mat-form-field>
             <mat-label>Введите имя пользователя</mat-label>
             <input matInput formControlName="name">
@@ -28,7 +27,9 @@
             </mat-form-field>
         </div>
         <button matTooltip="Создать Юзера" mat-raised-button
-            matIconSuffix mat-raised-button
+            color="primary"
+            matIconSuffix 
+            (click)="submitForm()"
             [disabled]="form.invalid">Add User
             <mat-icon>add</mat-icon>
         </button>

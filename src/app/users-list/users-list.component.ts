@@ -6,17 +6,22 @@ import { UsersService } from '../users.service';
 import { CreateUserFormComponent } from '../create-user-form/create-user-form.component';
 import { User } from '../interfaces/users.interface';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateUserDialogComponent } from './create-user-dialog/create-user-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss',
   standalone: true,
-  imports: [NgFor, UserCardComponent, 
-            AsyncPipe, CreateUserFormComponent,],
+  imports: [NgFor, UserCardComponent,
+    AsyncPipe, CreateUserFormComponent, MatIconModule, CreateUserDialogComponent],
             changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent implements OnInit {
+  
+    readonly dialog = inject(MatDialog);
   
   readonly usersApiService = inject(UsersApiService);
   private readonly usersService = inject(UsersService);
@@ -57,4 +62,18 @@ export class UsersListComponent implements OnInit {
     });
   }
   
+    openDialog(): void {
+    const dialogRef = this.dialog.open(CreateUserDialogComponent, {
+      data: { user: this.users$},
+    });
+
+     dialogRef.afterClosed().subscribe((result: User | undefined) => {
+      if (result) {
+        this.createUser(result);
+      }
+    });
+  }
+  createUserForm(user: User) {
+    this.usersService.createUser(user); 
+  }
 }

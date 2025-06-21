@@ -4,6 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Todo } from "../interfaces/todos.interface";
 
 
 
@@ -21,14 +22,13 @@ import { MatIconModule } from '@angular/material/icon';
 export class CreateTodoFormComponent {
     
     @Output()
-    createTodo = new EventEmitter();
+    createTodo = new EventEmitter<Todo>();
 
     public form: FormGroup = new FormGroup({
         title: new FormControl<string>('', [Validators.required, Validators.minLength(2)]),
         userId: new FormControl<number>(0, [Validators.required, Validators.minLength(1)]),
         completed: new FormControl<boolean>(false, [Validators.required, Validators.minLength(2)]),
     });
-
 
     public submitForm(): void {
         this.createTodo.emit(this.form.value);

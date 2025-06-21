@@ -22,17 +22,26 @@ export interface User {
   };
 }
 
-
-
-export interface CreateUserForm {
-  id: number;
-  name: string;
-  email: string;
-  website: string;
-  
-  companyName: {
+export interface CreateUser {
+    id: number;
     name: string;
-    catchPrase?: string;
-    bs?: string;
-  };
+    email: string;
+    website: string;
+    companyName: string;
 }
+
+
+
+// export interface CreateUserForm {
+//   id: number;
+//   name: string;
+//   email: string;
+//   website: string;
+  
+//   companyName: {
+//     name: string;
+//     catchPrase?: string;
+//     bs?: string;
+//   };
+// }
+
