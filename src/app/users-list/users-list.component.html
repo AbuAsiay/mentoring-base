@@ -1,17 +1,19 @@
 <app-create-user-form (createUser)="createUser($event)"></app-create-user-form>
-<!-- <app-create-user-dialog (createUser)="createUser($event)"></app-create-user-dialog> -->
 
-<button class="create-user-dialog" matTooltip="Создать Юзера" mat-raised-button
-            color="primary"
-            matIconSuffix 
-            (click)="openDialog()"
-            ><h1>CREATE USER</h1>
-            <mat-icon></mat-icon>
-        </button>
-    
+<button class="create-user-dialog" 
+  matTooltip="Создать Юзера" 
+  mat-raised-button
+  color="primary"
+  matIconSuffix
+  (click)="openDialog()">
+  <h1>CREATE USER</h1>
+  <mat-icon></mat-icon>
+</button>
+
 <div class="users-list">
   <div *ngFor="let user of users$ | async">
-    <app-user-card [user]="user" (deleteUser)="deleteUser($event)"(editUser)="editUser($event)">  
+    <app-user-card [user]="user" (deleteUser)="deleteUser($event)"
+      (editUser)="editUser($event)">
     </app-user-card>
   </div>
 </div>

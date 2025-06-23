@@ -1,8 +1,13 @@
 import { NgIf } from '@angular/common';
 import { Component, EventEmitter, inject, Output } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -14,45 +19,45 @@ import { User } from '../../interfaces/users.interface';
   standalone: true,
   templateUrl: './create-user-dialog.component.html',
   styleUrl: './create-user-dialog.component.scss',
-  imports: [ReactiveFormsModule,NgIf, MatInputModule,
-               MatFormFieldModule,
-               MatButtonModule,
-               MatIconModule,
-               MatTooltipModule],
-
+  imports: [ ReactiveFormsModule,
+             MatInputModule,
+             MatFormFieldModule,
+             MatButtonModule,
+             MatIconModule,
+             MatTooltipModule,
+           ],
 })
-
 export class CreateUserDialogComponent {
+  
   dialogRef = inject(MatDialogRef<CreateUserDialogComponent>);
-  data = inject(MAT_DIALOG_DATA);
 
   form = new FormGroup({
-    name: new FormControl(this.data?.user?.name ?? '', [Validators.required, Validators.minLength(2)]),
-    email: new FormControl(this.data?.user?.email ?? '', [Validators.required, Validators.email]),
-    website: new FormControl(this.data?.user?.website ?? '', [Validators.required, Validators.minLength(2)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    website: new FormControl('', [Validators.required,Validators.minLength(2),
+    ]),
     company: new FormGroup({
-      name: new FormControl(this.data?.user?.company?.name ?? '', [Validators.required, Validators.minLength(2)]),
-    })
+      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    }),
   });
 
-  submitForm() {
-    if (this.form.valid) {
-      const user: User = {
-        id: Date.now(),
-        name: this.form.value.name!,
-        email: this.form.value.email!,
-        website: this.form.value.website!,
-        company: {
-          name: (this.form.value.company as any).name
-        }
-      };
-      this.dialogRef.close(user); 
+ submitForm() {
+  if (this.form.valid) {
+    const user: User = {
+      id: Date.now(),
+      name: this.form.value.name ?? '',
+      email: this.form.value.email ?? '',
+      website: this.form.value.website ?? '',
+      company: {
+        name: this.form.value.company?.name ?? ''
+      }
+    };
+      this.dialogRef.close(user);
       this.form.reset();
     }
   }
+  
 }
-
-
 
 // export class CreateUserDialogComponent {
 //   dialogRef = inject(MatDialogRef<CreateUserDialogComponent>);
@@ -68,10 +73,9 @@ export class CreateUserDialogComponent {
 //         company: new FormGroup({
 //             name: new FormControl(this.data.user.companyName, [Validators.required, Validators.minLength(2)]),
 //         })
-        
+
 //     });
-    
-  
+
 //    public submitForm(): void {
 //         this.createUser.emit(this.form.value,);
 //         this.form.reset();
@@ -85,5 +89,5 @@ export class CreateUserDialogComponent {
 //             }
 //         )
 //     }
-  
+
 // }

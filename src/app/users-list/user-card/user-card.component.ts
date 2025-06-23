@@ -13,13 +13,12 @@ import { User } from '../../interfaces/users.interface';
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
   standalone: true,
-  imports: [
-    CustomUpperCasePipe,
-    RedDirective,
-    BoxShadowDirective,
-    MatButtonModule,
-    MatIconModule,
-  ],
+  imports: [ CustomUpperCasePipe,
+             RedDirective,
+             BoxShadowDirective,
+             MatButtonModule,
+             MatIconModule,
+          ],
 })
 export class UserCardComponent {
     

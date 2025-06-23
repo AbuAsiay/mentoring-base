@@ -13,11 +13,12 @@ import { Todo } from "../interfaces/todos.interface";
     templateUrl: './create-todo-form.component.html',
     styleUrl: './create-todo-form.component.scss',
     standalone: true,
-    imports: [ReactiveFormsModule,
-      MatInputModule,
-      MatFormFieldModule,
-      MatButtonModule,
-      MatIconModule],
+    imports: [ ReactiveFormsModule,
+               MatInputModule,
+               MatFormFieldModule,
+               MatButtonModule,
+               MatIconModule
+             ],
 })
 export class CreateTodoFormComponent {
     
