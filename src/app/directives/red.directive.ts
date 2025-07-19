@@ -20,16 +20,14 @@ export class RedDirective {
 
     @HostListener('mouseenter')
     enter() {
-        this.color = 'gray';
+        this.color = '#4b565e';
         this.textTransform = 'uppercase';
-        console.log('red')
     }    
  
     @HostListener('mouseleave')
     leave() {
         this.color = 'white';
         this.textTransform = 'lowercase';
-      console.log('white');
     }   
     
 }

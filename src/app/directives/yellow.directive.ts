@@ -22,13 +22,12 @@ export class YellowDerective {
     enter() {
         this.color = 'yellow';
         this.textTransform = 'uppercase';
-        console.log('yellow')
+    
     }
 
     @HostListener('mouseleave')
     leave() {
-        this.color = 'leave';
+        this.color = '#4b565e';
         this.textTransform = 'lowercase';
-        console.log('white');
     }
 }

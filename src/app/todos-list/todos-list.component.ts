@@ -11,7 +11,12 @@ import { Todo } from '../interfaces/todos.interface';
   templateUrl: './todos-list.component.html',
   styleUrl: './todos-list.component.scss',
   standalone: true,
-  imports: [NgFor, TodoCardComponent, AsyncPipe, CreateTodoFormComponent],
+  imports: [
+    NgFor,
+    TodoCardComponent,
+    AsyncPipe,
+    CreateTodoFormComponent
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodosListComponent {

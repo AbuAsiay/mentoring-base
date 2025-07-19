@@ -20,13 +20,14 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.scss',
   standalone: true,
-  imports: [ NgFor,
-             UserCardComponent,
-             AsyncPipe,
-             CreateUserFormComponent,
-             MatIconModule,
-            ],
-             changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    NgFor,
+    UserCardComponent,
+    AsyncPipe,
+    CreateUserFormComponent,
+    MatIconModule,
+  ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UsersListComponent implements OnInit {
   readonly dialog = inject(MatDialog);

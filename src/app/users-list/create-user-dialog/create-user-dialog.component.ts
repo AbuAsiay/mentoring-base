@@ -19,39 +19,42 @@ import { User } from '../../interfaces/users.interface';
   standalone: true,
   templateUrl: './create-user-dialog.component.html',
   styleUrl: './create-user-dialog.component.scss',
-  imports: [ ReactiveFormsModule,
-             MatInputModule,
-             MatFormFieldModule,
-             MatButtonModule,
-             MatIconModule,
-             MatTooltipModule,
-           ],
+  imports: [
+    ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTooltipModule,
+  ],
 })
 export class CreateUserDialogComponent {
-  
   dialogRef = inject(MatDialogRef<CreateUserDialogComponent>);
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    website: new FormControl('', [Validators.required,Validators.minLength(2),
+    website: new FormControl('', [
+      Validators.required,
+      Validators.minLength(2),
     ]),
     company: new FormGroup({
       name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     }),
   });
 
- submitForm() {
-  if (this.form.valid) {
-    const user: User = {
-      id: Date.now(),
-      name: this.form.value.name ?? '',
-      email: this.form.value.email ?? '',
-      website: this.form.value.website ?? '',
-      company: {
-        name: this.form.value.company?.name ?? ''
-      }
-    };
+  submitForm() {
+    if (this.form.valid) {
+      const value = this.form.value as User;
+      const user: User = {
+        id: Date.now(),
+        name: value.name,
+        email: value.email,
+        website: value.website,
+        company: {
+          name: value.company?.name,
+        },
+      };
       this.dialogRef.close(user);
       this.form.reset();
     }

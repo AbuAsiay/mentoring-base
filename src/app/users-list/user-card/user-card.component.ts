@@ -13,17 +13,17 @@ import { User } from '../../interfaces/users.interface';
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
   standalone: true,
-  imports: [ CustomUpperCasePipe,
-             RedDirective,
-             BoxShadowDirective,
-             MatButtonModule,
-             MatIconModule,
-          ],
+  imports: [
+    CustomUpperCasePipe,
+    RedDirective,
+    BoxShadowDirective,
+    MatButtonModule,
+    MatIconModule,
+  ],
 })
 export class UserCardComponent {
-    
   readonly dialog = inject(MatDialog);
-  
+
   @Input()
   user!: User;
 
@@ -32,8 +32,6 @@ export class UserCardComponent {
 
   @Output()
   editUser = new EventEmitter<User>();
-
-
 
   openDialog(): void {
     const dialogRef = this.dialog.open(EditUserDialogComponent, {
@@ -49,5 +47,4 @@ export class UserCardComponent {
   onDeleteUser(userId: number) {
     this.deleteUser.emit(userId);
   }
-  
 }
