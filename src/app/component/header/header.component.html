@@ -5,12 +5,12 @@
     </a>
 
     {{ today | date: 'medium' }}
- 
+
     <nav class="header-nav">
-      <button class="header-nav-item" routerLink>{{headerItem1}}</button>
-      <button class="header-nav-item">{{headerItem2}}</button>
+      <button class="header-nav-item" routerLink>{{ headerItem1 }}</button>
+      <button class="header-nav-item">{{ headerItem2 }}</button>
       <button class="header-nav-item"
-        *ngIf="isShowCatalog">{{headerItem3}}</button>
+        *ngIf="isShowCatalog">{{ headerItem3 }}</button>
     </nav>
     <button (click)="isShowCatalog = !isShowCatalog"
       class="header-nav-item">Скрыть/Показать каталог
@@ -21,10 +21,11 @@
   </div>
 
   <div class="header-right">
-    <button class="button-users" routerLink="users">Users</button>
+    <button class="button-users"
+      routerLink="/users">Users</button>
 
     <button class="button-adminka"
-      routerLink="admin">Adminka</button>
+      routerLink="/admin">Adminka</button>
 
     <img class="icon" src="/assets/Phone.svg" alt />
     <p>{{ user.phone | removeDashes }}</p>
@@ -33,7 +34,7 @@
     </div>
 
     <button type="button" class="header-right-item header-right basket" yellow>
-      <img class="icon" src="/assets/Mask group.png" alt />
+      <img class="icon" src="/assets/Mask group.png" />
       <span class="basket-text">Пусто</span>
     </button>
 
@@ -52,7 +53,8 @@
       <img src="/assets/light.svg" alt="икона коталога">
     </div>
     <nav class="menu-nav">
-      <div class="menu-nav-item" *ngFor="let Items of menuItems">{{ Items }}</div>
+      <div class="menu-nav-item" *ngFor="let items of menuItems">{{ items
+        }}</div>
     </nav>
   </div>
 

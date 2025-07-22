@@ -32,6 +32,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   ],
 })
 export class EditUserDialogComponent {
+  
   readonly data = inject<{ user: User }>(MAT_DIALOG_DATA);
   readonly dialogRef = inject(MatDialogRef<EditUserDialogComponent>);
 
@@ -62,4 +63,5 @@ export class EditUserDialogComponent {
       id: this.data.user.id,
     };
   }
+  
 }

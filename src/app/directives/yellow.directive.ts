@@ -5,7 +5,7 @@ import { Directive, HostBinding, HostListener } from "@angular/core";
     standalone: true,
 })
 export class YellowDerective {
-    color = ';'
+    color = 'defaultColor';
     textTransform = '';
     
     @HostBinding('style.backgroundColor')

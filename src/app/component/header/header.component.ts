@@ -1,5 +1,5 @@
 import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { RemovedashesPipe } from '../../pipes/remove-dashes.pipe';
 import { YellowDerective } from '../../directives/yellow.directive';
@@ -33,17 +33,15 @@ const upperCaseMenuItems = menuItems.map((item) => {
   styleUrl: './header.component.scss',
   standalone: true,
   imports: [
-            NgIf,
-            RouterLink,
-            NgFor,
-            CommonModule,
-            RemovedashesPipe,
-            YellowDerective,
-           ],
+    NgIf,
+    RouterLink,
+    NgFor,
+    CommonModule,
+    RemovedashesPipe,
+    YellowDerective,
+  ],
 })
-
 export class HeaderComponent {
-    
   private readonly dialog = inject(MatDialog);
   public readonly userService = inject(UserService);
 
@@ -52,10 +50,10 @@ export class HeaderComponent {
   };
 
   today: Date = new Date();
-  private timeId: any;
+  private timeId: number | undefined;
 
   ngOnInit() {
-    this.timeId = setInterval(() => {
+    setInterval(() => {
       this.today = new Date();
     }, 1000);
   }
@@ -89,7 +87,6 @@ export class HeaderComponent {
     });
 
     dialogRef.afterClosed().subscribe((result: string) => {
-      console.log('Результат подписки после Диалог окна', result);
       if (result === 'admin') {
         this.userService.loginAsAdmin();
       } else if (result === 'user') {
@@ -102,5 +99,4 @@ export class HeaderComponent {
       return this.userService.logout();
     } else return false;
   }
-  
 }
