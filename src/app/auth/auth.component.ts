@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,14 +13,16 @@ import { UserService } from '../user.service';
   styleUrl: './auth.component.scss'
 })
 export class AuthComponent {
-  constructor(public userService: UserService, public dialog: MatDialog) {}
+  
+ public userService = inject(UserService);
+ public dialog = inject(MatDialog);
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AuthComponent, {
       width: '250px',
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result: 'admin' | 'user') => {
       if (result === 'admin') {
         this.userService.loginAsAdmin();
       } else if (result === 'user') {

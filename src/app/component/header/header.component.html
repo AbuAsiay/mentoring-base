@@ -1,19 +1,20 @@
 <header class="header">
   <div class="header-left">
     <a class="header-logo" href="/">
-      <img src="/assets/Frame.svg" alt="логотип сайта">
+      <img src="/assets/Frame.svg" alt="логотип сайта" />
     </a>
 
-    {{ today | date: 'medium' }}
+    {{ today | date : "medium" }}
 
     <nav class="header-nav">
       <button class="header-nav-item" routerLink>{{ headerItem1 }}</button>
       <button class="header-nav-item">{{ headerItem2 }}</button>
-      <button class="header-nav-item"
-        *ngIf="isShowCatalog">{{ headerItem3 }}</button>
+      <button class="header-nav-item" *ngIf="isShowCatalog">
+        {{ headerItem3 }}
+      </button>
     </nav>
-    <button (click)="isShowCatalog = !isShowCatalog"
-      class="header-nav-item">Скрыть/Показать каталог
+    <button (click)="isShowCatalog = !isShowCatalog" class="header-nav-item">
+      Скрыть/Показать каталог
     </button>
     <button (click)="changeMenuText()" class="header-nav-item">
       Изменить текст
@@ -21,11 +22,9 @@
   </div>
 
   <div class="header-right">
-    <button class="button-users"
-      routerLink="/users">Users</button>
+    <button class="button-users" routerLink="/users">Users</button>
 
-    <button class="button-adminka"
-      routerLink="/admin">Adminka</button>
+    <button class="button-adminka" routerLink="/admin">Adminka</button>
 
     <img class="icon" src="/assets/Phone.svg" alt />
     <p>{{ user.phone | removeDashes }}</p>
@@ -38,34 +37,47 @@
       <span class="basket-text">Пусто</span>
     </button>
 
-    <button class="button-todos"
-      routerLink="todos">Todos</button>
-    <button (click)="openDialog()" class="button"
-      *ngIf="(userService.user$ | async) === null">Войти</button>
-    <button (click)="logout()" class="button"
-      *ngIf="(userService.user$ | async) !== null">Выйти</button>
+    <button class="button-todos" routerLink="todos">Todos</button>
+    <button
+      (click)="openDialog()"
+      class="button"
+      *ngIf="(userService.user$ | async) === null"
+    >
+      Войти
+    </button>
+    <button
+      (click)="logout()"
+      class="button"
+      *ngIf="(userService.user$ | async) !== null"
+    >
+      Выйти
+    </button>
   </div>
 </header>
 
 <div class="menu">
   <div class="menu-left">
     <div class="menu-logo2">
-      <img src="/assets/light.svg" alt="икона коталога">
+      <img src="/assets/light.svg" alt="икона коталога"/>
     </div>
     <nav class="menu-nav">
-      <div class="menu-nav-item" *ngFor="let items of menuItems">{{ items
-        }}</div>
+      <div class="menu-nav-item" *ngFor="let items of menuItems">
+        {{ items }}
+      </div>
     </nav>
   </div>
 
   <div class="menu-right">
     <form class="sea">
-      <input class="search" type="search"
-        placeholder="Поиск, например Круг зачистной">
-      <img class="lup" src="/assets/search.svg" alt>
+      <input
+        class="search"
+        type="search"
+        placeholder="Поиск, например Круг зачистной"
+      />
+      <img class="lup" src="/assets/search.svg"/>
     </form>
     <div class="moskwa">
-      <img class src="/assets/map-pin (2) 1.svg" alt />
+      <img class src="/assets/map-pin (2) 1.svg"/>
       <div class="menu-right">Москва</div>
     </div>
   </div>

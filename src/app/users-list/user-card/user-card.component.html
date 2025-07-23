@@ -1,12 +1,12 @@
 <div boxshadow class="user-card">
-  <p>{{user.name | customUpperCase}}</p>
-  <p>{{user.email | customUpperCase}}</p>
-  <p>{{user.website | customUpperCase}}</p>
-  <p>{{user.company.name}}</p>
-  <button class="snap" matFab
-    aria-label="Example icon button with a delete icon" mat-raised-button
-    (click)="onDeleteUser(user.id)"
-    red>УДАЛИТЬ <mat-icon>delete</mat-icon></button>
-  <button class="snap-1" mat-raised-button (click)="openDialog()"
-    red>РЕДАКТИРОВАТЬ </button>
+  <p>{{ user.name | customUpperCase }}</p>
+  <p>{{ user.email | customUpperCase }}</p>
+  <p>{{ user.website | customUpperCase }}</p>
+  <p>{{ user.company.name }}</p>
+  <button class="snap"
+    matFabaria-label="Example icon button with a delete icon"
+    mat-raised-button (click)="onDeleteUser(user.id)" red>
+    УДАЛИТЬ <mat-icon>delete</mat-icon>
+  </button>
+  <button class="snap-1" mat-raised-button (click)="openDialog()" red>РЕДАКТИРОВАТ</button>
 </div>
