@@ -24,6 +24,7 @@ import { Todo } from '../interfaces/todos.interface';
     MatIconModule,
   ],
 })
+
 export class CreateTodoFormComponent {
   @Output()
   createTodo = new EventEmitter<Todo>();

@@ -9,6 +9,9 @@ import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserDialogComponent } from './create-user-dialog/create-user-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import {Store} from "@ngrx/store";
+import {UsersActions} from "./store/users.actions";
+import { selectUsers } from './store/users.selectors';
 
 @Component({
   selector: 'app-users-list',
@@ -24,16 +27,20 @@ import { MatIconModule } from '@angular/material/icon';
   ],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class UsersListComponent implements OnInit {
   readonly dialog = inject(MatDialog);
 
   readonly usersApiService = inject(UsersApiService);
   private readonly usersService = inject(UsersService);
-  users$: Observable<User[]> = this.usersService.users$;
+  private readonly store = inject(Store)
+  public readonly users$ = this.store.select(selectUsers);
+  // users$: Observable<User[]> = this.usersService.users$;
 
   ngOnInit(): void {
     this.usersApiService.getUsers().subscribe((response: User[]) => {
       this.usersService.setUsers(response);
+      this.store.dispatch(UsersActions.set({ users: response }))
     });
   }
 
@@ -47,23 +54,35 @@ export class UsersListComponent implements OnInit {
         name: formData.company.name,
       },
     });
+    this.store.dispatch(UsersActions.create({
+      user: {
+        id: new Date().getTime(),
+        name: formData.name,
+        email: formData.email,
+        website: formData.website,
+        company: {
+          name: formData.company.name,
+        },
+      }
+    }))
   }
 
   deleteUser(id: number) {
     this.usersService.deleteUser(id);
+    this.store.dispatch(UsersActions.delete({ id }));
   }
 
   editUser(userData: undefined | User) {
     if (!userData) {
       return;
     }
-
     this.usersService.editUsers({
       ...userData,
       company: {
         name: userData.company.name,
       },
     });
+    this.store.dispatch(UsersActions.edit({ user: userData }));
   }
 
   openDialog(): void {
@@ -79,3 +98,6 @@ export class UsersListComponent implements OnInit {
     this.usersService.createUser(user);
   }
 }
+
+export { User };
+// export { User };

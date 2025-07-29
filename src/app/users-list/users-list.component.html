@@ -12,7 +12,9 @@
 
 <div class="users-list">
   <div *ngFor="let user of users$ | async">
-    <app-user-card [user]="user" (deleteUser)="deleteUser($event)"
+    <app-user-card
+      [user]="user"
+      (deleteUser)="deleteUser($event)"
       (editUser)="editUser($event)">
     </app-user-card>
   </div>

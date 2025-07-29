@@ -7,23 +7,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule,} from '@angular/material/tooltip';
 
-
 @Component({
     selector: 'app-create-user-form',
     templateUrl: './create-user-form.component.html',
     styleUrl: './create-user-form.component.scss',
     standalone: true,
-    imports: [ ReactiveFormsModule,
-               MatInputModule,
-               MatFormFieldModule,
-               MatButtonModule,
-               MatIconModule,
-               MatTooltipModule,
-              ],
- 
+    imports: [
+      ReactiveFormsModule,
+      MatInputModule,
+      MatFormFieldModule,
+      MatButtonModule,
+      MatIconModule,
+      MatTooltipModule,
+    ],
 })
 export class CreateUserFormComponent {
-    
+
     @Output()
     createUser = new EventEmitter();
 
@@ -35,13 +34,12 @@ export class CreateUserFormComponent {
             name: new FormControl('', [Validators.required, Validators.minLength(2)]),
         })
     });
-  
 
     public submitForm(): void {
         this.createUser.emit(this.form.value);
         this.form.reset();
     }
-
+    
     constructor() {
         this.form.valueChanges.subscribe(
             (value) => {
@@ -49,5 +47,5 @@ export class CreateUserFormComponent {
             }
         )
     }
-    
+
 }
