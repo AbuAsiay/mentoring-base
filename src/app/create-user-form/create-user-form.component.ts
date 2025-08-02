@@ -15,7 +15,6 @@ import { MatTooltipModule,} from '@angular/material/tooltip';
     imports: [
       ReactiveFormsModule,
       MatInputModule,
-      MatFormFieldModule,
       MatButtonModule,
       MatIconModule,
       MatTooltipModule,
@@ -39,7 +38,7 @@ export class CreateUserFormComponent {
         this.createUser.emit(this.form.value);
         this.form.reset();
     }
-    
+
     constructor() {
         this.form.valueChanges.subscribe(
             (value) => {
@@ -47,5 +46,4 @@ export class CreateUserFormComponent {
             }
         )
     }
-
 }

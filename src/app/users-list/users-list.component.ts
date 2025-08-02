@@ -9,9 +9,10 @@ import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserDialogComponent } from './create-user-dialog/create-user-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
-import {Store} from "@ngrx/store";
-import {UsersActions} from "./store/users.actions";
+import { Store } from "@ngrx/store";
+import { UsersActions } from "./store/users.actions";
 import { selectUsers } from './store/users.selectors';
+
 
 @Component({
   selector: 'app-users-list',
@@ -35,7 +36,7 @@ export class UsersListComponent implements OnInit {
   private readonly usersService = inject(UsersService);
   private readonly store = inject(Store)
   public readonly users$ = this.store.select(selectUsers);
-  // users$: Observable<User[]> = this.usersService.users$;
+
 
   ngOnInit(): void {
     this.usersApiService.getUsers().subscribe((response: User[]) => {
@@ -98,6 +99,3 @@ export class UsersListComponent implements OnInit {
     this.usersService.createUser(user);
   }
 }
-
-export { User };
-// export { User };
