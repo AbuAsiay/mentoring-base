@@ -16,13 +16,13 @@ export const userReducer = createReducer(
   })),
   on(UsersActions.edit, (state, payload) => ({
     ...state,
-    users: state.users.map(users => users.id === payload.user.id ? payload.user: users),
+    users: state.users.map((user: User) => user.id === payload.user.id ? payload.user: user),
   })),
   on(UsersActions.create, (state, payload) => ({
     ...state,
     users: [...state.users, payload.user],
   })),
-on(UsersActions.delete, (state,{ id }) => ({
+on(UsersActions.delete, (state, { id }) => ({
   ...state,
   users: state.users.filter(user => user.id !== id),
 })),

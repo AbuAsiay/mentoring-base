@@ -38,18 +38,10 @@
     </button>
 
     <button class="button-todos" routerLink="todos">Todos</button>
-    <button
-      (click)="openDialog()"
-      class="button"
-      *ngIf="(userService.user$ | async) === null"
-    >
+    <button (click)="openDialog()" class="button" *ngIf="(userService.user$ | async) === null">
       Войти
     </button>
-    <button
-      (click)="logout()"
-      class="button"
-      *ngIf="(userService.user$ | async) !== null"
-    >
+    <button (click)="logout()" class="button" *ngIf="(userService.user$ | async) !== null">
       Выйти
     </button>
   </div>
@@ -58,7 +50,7 @@
 <div class="menu">
   <div class="menu-left">
     <div class="menu-logo2">
-      <img src="/assets/light.svg" alt="икона коталога"/>
+      <img src="/assets/light.svg" alt="икона коталога" />
     </div>
     <nav class="menu-nav">
       <div class="menu-nav-item" *ngFor="let items of menuItems">
@@ -69,15 +61,11 @@
 
   <div class="menu-right">
     <form class="sea">
-      <input
-        class="search"
-        type="search"
-        placeholder="Поиск, например Круг зачистной"
-      />
-      <img class="lup" src="/assets/search.svg"/>
+      <input class="search" type="search" placeholder="Поиск, например Круг зачистной" />
+      <img class="lup" src="/assets/search.svg" />
     </form>
     <div class="moskwa">
-      <img class src="/assets/map-pin (2) 1.svg"/>
+      <img class src="/assets/map-pin (2) 1.svg" />
       <div class="menu-right">Москва</div>
     </div>
   </div>

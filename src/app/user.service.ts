@@ -20,9 +20,9 @@ export class UserService {
     isAdmin: false,
   };
 
-  constructor() {
-    this.userSubject$.next(this.user);
-  }
+  // constructor() {
+  //   this.userSubject$.next(this.user);
+  // }
 
   loginAsAdmin() {
     this.userSubject$.next({ ...this.user, isAdmin: true });

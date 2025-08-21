@@ -1,6 +1,6 @@
 import { AsyncPipe, CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { RemovedashesPipe } from '../../pipes/remove-dashes.pipe';
 import { YellowDerective } from '../../directives/yellow.directive';
 import { MatDialog } from '@angular/material/dialog';
@@ -44,7 +44,7 @@ const upperCaseMenuItems = menuItems.map((item) => {
 export class HeaderComponent {
   private readonly dialog = inject(MatDialog);
   public readonly userService = inject(UserService);
-
+  private readonly router = inject(Router);
   user = {
     phone: '+7 (965) 084-29-29',
   };
@@ -96,6 +96,7 @@ export class HeaderComponent {
   }
   public logout() {
     if (confirm('Вы уверены, что хотите выйти?')) {
+      this.router.navigate(['/']);
       return this.userService.logout();
     } else return false;
   }
